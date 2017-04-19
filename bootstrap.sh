@@ -2,7 +2,30 @@
 
 #move to home directory
 
-echo "----"
-find . -type f -name ".*" -exec cp {} $HOME/ \; -exec echo "Copied" {} \;
-echo "----"
+SHELLS=./shells/*
+UTILS=./utils/*
+GIT=./git/*
+
+for file in $SHELLS
+do  
+    newFile=$(echo "file name " ${file:2} | cut -d'/' -f 2)
+    cp -v $file $HOME$newFile
+done
+
+for file in $UTILS
+do  
+    newFile=$(echo "file name " ${file:2} | cut -d'/' -f 2)
+    cp -v $file $HOME$newFile
+done
+
+
+for file in $GIT
+do  
+    newFile=$(echo "file name " ${file:2} | cut -d'/' -f 2)
+    cp -v $file $HOME$newFile
+done
+
 echo "Files moved to home directory, enjoy your workflow."
+
+
+
